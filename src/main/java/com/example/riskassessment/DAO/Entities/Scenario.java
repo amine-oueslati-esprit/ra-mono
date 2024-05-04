@@ -58,5 +58,7 @@ public class Scenario implements Serializable{
 
     @Enumerated
     niveau_risque risqueResiduelNiveau;
-    
+
+
+
 }

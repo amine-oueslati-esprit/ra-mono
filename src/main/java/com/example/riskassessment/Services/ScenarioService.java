@@ -37,4 +37,29 @@ public class ScenarioService implements IScenarioService {
 
     @Override
     public void deleteScenario(Scenario x) { sRepo.delete(x);    }
+
+    @Override
+    public void calcRisqueInherentScore(long idScenario) {
+        Scenario s = sRepo.findById(idScenario).get();
+        s.setRisqueInherentScore(s.getVraisemblanceInherente()*s.getImpactInherent());
+        sRepo.save(s);
+    }
+
+    @Override
+    public void calcRisqueReelScore(long idScenario) {
+        Scenario s = sRepo.findById(idScenario).get();
+        s.setRisqueReelScore(s.getVraisemblanceReelle()*s.getImpactReel());
+        sRepo.save(s);
+
+    }
+
+    @Override
+    public void calcRisqueResiduelScore(long idScenario) {
+        Scenario s = sRepo.findById(idScenario).get();
+        s.setRisque_residuelScore(s.getVraisemblanceResiduelle()*s.getImpactResiduel());
+        sRepo.save(s);
+
+    }
+
+
 }

@@ -52,7 +52,14 @@ public class OAuth2ResourceServerSecurityConfiguration {
             // welcome test rest endpoints
             "/access/**","/login","/api/auth/register",
             "/h2-console/**",
-            "/product/**"
+            "/Projets/**",
+            "/GroupeA/**",
+            "/Actifs/**",
+            "/Vulnerabilites/**",
+            "/ControleC/**",
+            "/ScenarioC/**",
+
+
 
     };
 

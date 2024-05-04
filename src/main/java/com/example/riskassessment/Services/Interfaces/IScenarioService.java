@@ -11,4 +11,14 @@ public interface IScenarioService {
     Scenario updateScenario(Scenario x);
     void deleteScenario(long id);
     void deleteScenario(Scenario x);
+
+    void calcRisqueInherentScore(long idScenario);
+
+    void calcRisqueReelScore(long idScenario);
+
+    void calcRisqueResiduelScore(long idScenario);
+
+
+
+
 }

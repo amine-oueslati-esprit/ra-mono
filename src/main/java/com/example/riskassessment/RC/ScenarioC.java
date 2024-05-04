@@ -42,4 +42,6 @@ public class ScenarioC {
     Scenario findById(@PathVariable long id){
         return ScenarioRest.findById(id);
     }
+
+
 }
