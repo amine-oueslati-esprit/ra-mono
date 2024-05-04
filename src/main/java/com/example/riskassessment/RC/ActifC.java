@@ -10,6 +10,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/Actifs")
+
 public class ActifC {
     private final IActifService actifRest;
 
@@ -47,6 +48,5 @@ public class ActifC {
     void affecterActifAGroupe(@RequestParam long idactif, @RequestParam long idgroupea) {
         actifRest.affecterActifAGroupe(idactif, idgroupea);
     }
-
 
 }

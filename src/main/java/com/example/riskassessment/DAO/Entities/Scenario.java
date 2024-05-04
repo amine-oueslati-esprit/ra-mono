@@ -2,11 +2,14 @@ package com.example.riskassessment.DAO.Entities;
 
 import com.example.riskassessment.DAO.Enumerations.niveau_impact;
 import com.example.riskassessment.DAO.Enumerations.niveau_risque;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Getter
@@ -54,10 +57,18 @@ public class Scenario implements Serializable{
 
     float vraisemblanceResiduelle;
 
-    float risque_residuelScore;
+    float risqueResiduelScore;
 
     @Enumerated
     niveau_risque risqueResiduelNiveau;
+
+    //Parent MO-U groupe actifs
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    List<Controle> controleList =new ArrayList<>();
+
+
+
 
 
 

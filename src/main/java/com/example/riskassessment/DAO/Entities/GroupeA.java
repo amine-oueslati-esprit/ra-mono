@@ -1,4 +1,5 @@
 package com.example.riskassessment.DAO.Entities;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,5 +30,4 @@ public class GroupeA implements Serializable {
     @JsonIgnore
     @ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     List<Actif> actifList=new ArrayList<Actif>();
-
 }

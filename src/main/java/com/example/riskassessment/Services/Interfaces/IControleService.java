@@ -11,4 +11,11 @@ public interface IControleService {
     Controle updateControle(Controle x);
     void deleteControle(long id);
     void deleteControle(Controle x);
+
+    void calcEfficaciteCtrl(Controle x);
+
+    void affecterCtrlAScena(long id, long idscenario);
+
+    float calcValRedImpact(Controle x);
+    float calcValRedProbabilite(Controle x);
 }

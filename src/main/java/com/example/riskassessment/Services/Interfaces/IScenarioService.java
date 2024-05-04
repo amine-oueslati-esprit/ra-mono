@@ -18,7 +18,4 @@ public interface IScenarioService {
 
     void calcRisqueResiduelScore(long idScenario);
 
-
-
-
 }
