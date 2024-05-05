@@ -56,8 +56,8 @@ public class OAuth2ResourceServerSecurityConfiguration {
             "/GroupeA/**",
             "/Actifs/**",
             "/Vulnerabilites/**",
-            "/ControleC/**",
-            "/ScenarioC/**",
+            "/Controles/**",
+            "/Scenarios/**"
 
 
 

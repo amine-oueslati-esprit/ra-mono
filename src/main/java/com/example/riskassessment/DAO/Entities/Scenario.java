@@ -35,30 +35,23 @@ public class Scenario implements Serializable{
     @Enumerated
     niveau_impact impactDisponibilite;
 
+
     float vraisemblanceInherente;
-
     float impactInherent;
-
+    float risqueInherentScore;
     @Enumerated
     niveau_risque risqueInherentNiveau;
 
-    float risqueInherentScore;
 
     float impactReel;
-
     float vraisemblanceReelle;
-
     float risqueReelScore;
-
     @Enumerated
     niveau_risque risqueReelNiveau;
 
     float impactResiduel;
-
     float vraisemblanceResiduelle;
-
     float risqueResiduelScore;
-
     @Enumerated
     niveau_risque risqueResiduelNiveau;
 
@@ -66,10 +59,5 @@ public class Scenario implements Serializable{
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Controle> controleList =new ArrayList<>();
-
-
-
-
-
 
 }

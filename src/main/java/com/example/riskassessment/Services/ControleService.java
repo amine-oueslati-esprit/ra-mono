@@ -61,23 +61,20 @@ public class ControleService implements IControleService {
         Scenario scenario=sRepo.findById(idscenario).get();//parent
         //On affecte le child au parent
         scenario.getControleList().add(controle);
-        sRepo.save(scenario);
 
-        scenario.setRisqueReelScore(idscenario);
-        scenario.setRisqueResiduelScore(idscenario);
         sRepo.save(scenario);
     }
 
     @Override
     public float calcValRedImpact(Controle x) {
-        x.setValeurReductionImpact((x.getEfficacite()*x.getValeurReductionImpact())/4);
+        x.setValeurReductionImpact((x.getEfficacite()*x.getPonderationSurImpact())/4);
         cRepo.save(x);
         return x.getValeurReductionImpact();
     }
 
     @Override
     public float calcValRedProbabilite(Controle x) {
-        x.setValeurReductionProbabilite((x.getEfficacite()*x.getValeurReductionProbabilite())/4);
+        x.setValeurReductionProbabilite((x.getEfficacite()*x.getPonderationSurProbabilite())/4);
         cRepo.save(x);
         return x.getValeurReductionProbabilite();
     }

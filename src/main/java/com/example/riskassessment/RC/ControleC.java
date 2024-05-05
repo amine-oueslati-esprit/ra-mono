@@ -42,4 +42,7 @@ public class ControleC {
     Controle findById(@PathVariable long id){
         return ControleRest.findById(id);
     }
+
+    @PostMapping("/affecterCtrlAScena")
+    void affecterCtrlAScena(long id, long idscenario){ ControleRest.affecterCtrlAScena(id, idscenario); }
 }

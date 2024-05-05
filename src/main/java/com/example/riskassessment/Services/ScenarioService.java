@@ -16,13 +16,14 @@ public class ScenarioService implements IScenarioService {
 
     @Override
     public Scenario addScenario(Scenario x) {
-        sRepo.save(x);
-        calcRisqueInherentScore(x.getIdScenario());
         return sRepo.save(x);
     }
 
     @Override
     public Scenario findById(long id) {
+        calcRisqueInherentScore(id);
+        calcRisqueReelScore(id);
+        calcRisqueResiduelScore(id);
         return sRepo.findById(id).get();
     }
 
@@ -33,6 +34,7 @@ public class ScenarioService implements IScenarioService {
 
     @Override
     public Scenario updateScenario(Scenario x) {
+        sRepo.save(x);
         return sRepo.save(x);
     }
 
@@ -52,8 +54,9 @@ public class ScenarioService implements IScenarioService {
     @Override
     public void calcRisqueReelScore(long idScenario) {
         Scenario s = sRepo.findById(idScenario).get();
-        List<Controle> ls= s.getControleList();
+        s.setRisqueReelScore(s.getRisqueInherentScore());
 
+        List<Controle> ls= s.getControleList();
         for (Controle x : ls) {
             if (x.isExistant()){
                 // Perform your operation here
@@ -69,17 +72,17 @@ public class ScenarioService implements IScenarioService {
     @Override
     public void calcRisqueResiduelScore(long idScenario) {
         Scenario s = sRepo.findById(idScenario).get();
-        List<Controle> ls= s.getControleList();
 
+        List<Controle> ls= s.getControleList();
         for (Controle x : ls) {
-            if (!x.isExistant()){
+            if (x.isExistant()==false){
                 // Perform your operation here
-                s.setImpactInherent(s.getImpactReel()-x.getValeurReductionImpact());
-                s.setVraisemblanceInherente(s.getVraisemblanceReelle()-x.getValeurReductionProbabilite());
+                s.setImpactResiduel(s.getImpactReel()-x.getValeurReductionImpact());
+                s.setVraisemblanceResiduelle(s.getVraisemblanceReelle()-x.getValeurReductionProbabilite());
                 sRepo.save(s);
             }
         }
-        s.setRisqueResiduelScore(s.getVraisemblanceReelle()*s.getImpactReel());
+        s.setRisqueResiduelScore(s.getVraisemblanceResiduelle()*s.getImpactResiduel());
         sRepo.save(s);
 
     }
