@@ -43,5 +43,8 @@ public class ScenarioC {
         return ScenarioRest.findById(id);
     }
 
+    @PostMapping("/affecterControleAScenario")
+    void affecterCtrlAScena(long idCtrl, long idscenario){ ScenarioRest.affecterControleAScenario(idCtrl, idscenario); }
+
 
 }

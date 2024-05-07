@@ -6,16 +6,19 @@ import java.util.List;
 
 public interface IScenarioService {
     Scenario addScenario(Scenario x);
+    Scenario updateScenario(Scenario x);
+
     Scenario findById(long id);
     List<Scenario> findAll();
-    Scenario updateScenario(Scenario x);
+
     void deleteScenario(long id);
     void deleteScenario(Scenario x);
 
-    void calcRisqueInherentScore(long idScenario);
+    float calcRisqueInherentScore(float vh,float ih );
+
+    void affecterControleAScenario(long idCtrl, long idScena);
 
     void calcRisqueReelScore(long idScenario);
-
     void calcRisqueResiduelScore(long idScenario);
 
 }

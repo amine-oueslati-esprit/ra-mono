@@ -43,7 +43,7 @@ public class ProjetC {
         return projetRest.findById(id);
     }
 
-    @PutMapping("/ affecterGroupeAProjet")
+    @PutMapping("/affecterGroupeAProjet")
     void  affecterGroupeAProjet(@RequestParam long idgroupea, @RequestParam long idprojet) {
         projetRest. affecterGroupeAProjet(idgroupea,idprojet);
     }
