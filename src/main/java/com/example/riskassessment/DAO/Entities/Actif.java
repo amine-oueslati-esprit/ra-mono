@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,37 +18,36 @@ import java.util.List;
 @Builder
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
-
 public class Actif implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     long idactif;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     typeActif atype;
 
     String areference;
 
     String alocalisation;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     criticite criticite_confidentialite;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     criticite criticite_integrite;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     criticite criticite_disponibilite;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     criticite criticite_valeur_actif;
 
     //MM-B vulnerabilites
     //parent
     @JsonIgnore
     @ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-    List<Vulnerabilite> vulnerabilites =new ArrayList<Vulnerabilite>();
+    List<Vulnerabilite> vulnerabilitesList =new ArrayList<Vulnerabilite>();
 
     //MM-B groupe actifs
     //child

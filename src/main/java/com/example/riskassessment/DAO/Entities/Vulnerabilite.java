@@ -17,7 +17,6 @@ import java.util.List;
 @Builder
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
-
 public class Vulnerabilite implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,11 +28,10 @@ public class Vulnerabilite implements Serializable {
     //MM-B actifs concernes
     //child
     @JsonIgnore
-    @ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="vulnerabilites")
+    @ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="vulnerabilitesList")
     List<Actif> actifsconcernes=new ArrayList<>();
 
-
-    //OO-U
+    //OO-U menaces
     @OneToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     Menace menace;
 }

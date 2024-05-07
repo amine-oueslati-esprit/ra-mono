@@ -11,4 +11,6 @@ public interface IGroupeAService {
     GroupeA updateGroupeA(GroupeA a);
     void deleteGroupeA(long id);
     void deleteGroupeA(GroupeA a);
+
+    void affecterActifAGroupe(long idactif, long idgroupe);
 }

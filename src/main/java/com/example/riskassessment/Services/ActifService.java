@@ -2,7 +2,9 @@ package com.example.riskassessment.Services;
 
 import com.example.riskassessment.DAO.Entities.Actif;
 import com.example.riskassessment.DAO.Entities.GroupeA;
+import com.example.riskassessment.DAO.Entities.Vulnerabilite;
 import com.example.riskassessment.DAO.Repositories.actifRepo;
+import com.example.riskassessment.DAO.Repositories.vulnerabiliteRepo;
 import com.example.riskassessment.DAO.Repositories.groupeARepo;
 import com.example.riskassessment.Services.Interfaces.IActifService;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ActifService implements IActifService {
     private final actifRepo aRepo;
+    private final vulnerabiliteRepo vRepo;
     private final groupeARepo gRepo;
 
     @Override
@@ -38,13 +41,20 @@ public class ActifService implements IActifService {
     @Override
     public void deleteActif(long id) {
         aRepo.deleteById(id);
-
     }
 
     @Override
     public void deleteActif(Actif a) {
         aRepo.delete(a);
+    }
 
+    @Override
+    public void affecterVulnAActif(long idactif, long idvuln) {
+        Actif actif= aRepo.findById(idactif).get(); //parent
+        Vulnerabilite vuln= vRepo.findById(idvuln).get();//child
+        //On affecte le child au parent
+        actif.getVulnerabilitesList().add(vuln);
+        aRepo.save(actif);
     }
 
     @Override

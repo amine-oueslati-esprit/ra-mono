@@ -2,6 +2,7 @@ package com.example.riskassessment.DAO.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
 
@@ -12,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 @Entity
-
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Controle implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,8 +40,5 @@ public class Controle implements Serializable {
     float valeurReductionProbabilite;
 
     boolean existant;
-
-
-
 
 }

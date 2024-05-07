@@ -18,7 +18,10 @@ public interface IScenarioService {
 
     void affecterControleAScenario(long idCtrl, long idScena);
 
-    void calcRisqueReelScore(long idScenario);
-    void calcRisqueResiduelScore(long idScenario);
+    void calcRisqueReelScore(Scenario s);
+    void calcRisqueResiduelScore(Scenario s);
+
+    String setrisklevel(float riskscore);
+
 
 }

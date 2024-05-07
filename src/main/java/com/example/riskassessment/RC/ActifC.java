@@ -49,4 +49,10 @@ public class ActifC {
         actifRest.affecterActifAGroupe(idactif, idgroupea);
     }
 
+    @PutMapping("/affecterVulnAActif")
+    void affecterVulnAActif(@RequestParam long idactif, @RequestParam long idvuln) {
+        actifRest.affecterVulnAActif(idactif,idvuln);
+    }
+
+
 }

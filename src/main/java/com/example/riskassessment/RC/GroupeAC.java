@@ -42,5 +42,10 @@ public class GroupeAC {
     GroupeA findById(@PathVariable long id){
         return groupeARest.findById(id);
     }
+
+    @PutMapping("/affecterActifAGroupe")
+    void affecterActifAGroupe(@RequestParam long idactif, @RequestParam long idgroupea) {
+        groupeARest.affecterActifAGroupe(idactif, idgroupea);
+    }
 }
 

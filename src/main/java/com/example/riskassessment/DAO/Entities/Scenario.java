@@ -19,7 +19,6 @@ import java.util.List;
 @Builder
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
-
 public class Scenario implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,9 +54,12 @@ public class Scenario implements Serializable{
     @Enumerated
     niveau_risque risqueResiduelNiveau;
 
-    //Parent MO-U groupe actifs
+    //Parent MM-U controles
+    //parent
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Controle> controleList =new ArrayList<>();
+
+
 
 }

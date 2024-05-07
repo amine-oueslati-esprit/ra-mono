@@ -12,5 +12,8 @@ public interface IActifService {
     void deleteActif(long id);
     void deleteActif(Actif a);
 
+    void affecterVulnAActif(long idactif, long idvuln);
+
     void affecterActifAGroupe(long idactif, long idgroupea);
+
 }

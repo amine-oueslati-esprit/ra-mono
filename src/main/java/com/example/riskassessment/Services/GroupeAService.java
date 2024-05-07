@@ -1,6 +1,8 @@
 package com.example.riskassessment.Services;
 
+import com.example.riskassessment.DAO.Entities.Actif;
 import com.example.riskassessment.DAO.Entities.GroupeA;
+import com.example.riskassessment.DAO.Repositories.actifRepo;
 import com.example.riskassessment.DAO.Repositories.groupeARepo;
 import com.example.riskassessment.Services.Interfaces.IGroupeAService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GroupeAService implements IGroupeAService {
     private final groupeARepo gRepo;
+    private final actifRepo aRepo;
 
 
     @Override
@@ -43,5 +46,14 @@ public class GroupeAService implements IGroupeAService {
     public void deleteGroupeA(GroupeA a) {
         gRepo.delete(a);
 
+    }
+
+    @Override
+    public void affecterActifAGroupe(long idactif, long idgroupe) {
+        Actif actif= aRepo.findById(idactif).get(); //child
+        GroupeA groupe= gRepo.findById(idgroupe).get();//parent
+        //On affecte le child au parent
+        groupe.getActifList().add(actif);
+        gRepo.save(groupe);
     }
 }
