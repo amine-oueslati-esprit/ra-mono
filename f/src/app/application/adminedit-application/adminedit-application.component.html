@@ -1,0 +1,65 @@
+
+
+
+
+<div class="container">
+    <h1>Update Post</h1>
+   
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+          
+    <form [formGroup]="form" (ngSubmit)="submit()">
+    
+        <div class="form-group">
+            <label for="nom">nom:</label>
+            <input 
+                formControlName="nom"
+                id="nom" 
+                type="text" 
+                [(ngModel)]="post.nom"
+                class="form-control">
+            <div *ngIf="f['nom'].touched && f['nom'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nom'].errors && f['nom'].errors['required']">nom is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="desc_app">desc_app:</label>
+            <input 
+                formControlName="desc_app"
+                id="desc_app" 
+                type="text" 
+                [(ngModel)]="post.desc_app"
+                class="form-control">
+            <div *ngIf="f['desc_app'].touched && f['desc_app'].invalid" class="alert alert-danger">
+                <div *ngIf="f['desc_app'].errors && f['desc_app'].errors['required']">desc_app is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="editeur">editeur:</label>
+            <input 
+                formControlName="editeur"
+                id="editeur" 
+                type="text" 
+                [(ngModel)]="post.editeur"
+                class="form-control">
+            <div *ngIf="f['editeur'].touched && f['editeur'].invalid" class="alert alert-danger">
+                <div *ngIf="f['editeur'].errors && f['editeur'].errors['required']">editeur is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="hebergement">hebergement:</label>
+            <input 
+                formControlName="hebergement"
+                id="hebergement" 
+                type="text" 
+                [(ngModel)]="post.hebergement"
+                class="form-control">
+            <div *ngIf="f['hebergement'].touched && f['hebergement'].invalid" class="alert alert-danger">
+                <div *ngIf="f['hebergement'].errors && f['hebergement'].errors['required']">hebergement is required.</div>
+            </div>
+        </div>
+           
+
+         
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>

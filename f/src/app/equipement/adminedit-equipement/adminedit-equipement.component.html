@@ -1,0 +1,77 @@
+
+
+
+
+<div class="container">
+    <h1>Update Post</h1>
+   
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+          
+    <form [formGroup]="form" (ngSubmit)="submit()">
+    
+        <div class="form-group">
+            <label for="constructeur">constructeur:</label>
+            <input 
+                formControlName="constructeur"
+                id="constructeur" 
+                type="text" 
+                [(ngModel)]="post.constructeur"
+                class="form-control">
+            <div *ngIf="f['constructeur'].touched && f['constructeur'].invalid" class="alert alert-danger">
+                <div *ngIf="f['constructeur'].errors && f['constructeur'].errors['required']">constructeur is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="modele">modele:</label>
+            <input 
+                formControlName="modele"
+                id="modele" 
+                type="text" 
+                [(ngModel)]="post.modele"
+                class="form-control">
+            <div *ngIf="f['modele'].touched && f['modele'].invalid" class="alert alert-danger">
+                <div *ngIf="f['modele'].errors && f['modele'].errors['required']">modele is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="redodance">redodance:</label>
+            <input 
+                formControlName="redodance"
+                id="redodance" 
+                type="text" 
+                [(ngModel)]="post.redodance"
+                class="form-control">
+            <div *ngIf="f['redodance'].touched && f['redodance'].invalid" class="alert alert-danger">
+                <div *ngIf="f['redodance'].errors && f['redodance'].errors['required']">redodance is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="mode_redondance">mode_redondance:</label>
+            <input 
+                formControlName="mode_redondance"
+                id="mode_redondance" 
+                type="text" 
+                [(ngModel)]="post.mode_redondance"
+                class="form-control">
+            <div *ngIf="f['mode_redondance'].touched && f['mode_redondance'].invalid" class="alert alert-danger">
+                <div *ngIf="f['mode_redondance'].errors && f['mode_redondance'].errors['required']">mode_redondance is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="contrat_maintenance">contrat_maintenance:</label>
+            <input 
+                formControlName="contrat_maintenance"
+                id="contrat_maintenance" 
+                type="text" 
+                [(ngModel)]="post.contrat_maintenance"
+                class="form-control">
+            <div *ngIf="f['contrat_maintenance'].touched && f['contrat_maintenance'].invalid" class="alert alert-danger">
+                <div *ngIf="f['contrat_maintenance'].errors && f['contrat_maintenance'].errors['required']">contrat_maintenance is required.</div>
+            </div>
+        </div>
+           
+
+         
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>

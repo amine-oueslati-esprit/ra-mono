@@ -1,0 +1,125 @@
+
+
+
+
+<div class="container">
+    <h1>Update Post</h1>
+   
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+          
+    <form [formGroup]="form" (ngSubmit)="submit()">
+    
+        <div class="form-group">
+            <label for="descriptionControle">descriptionControle:</label>
+            <input 
+                formControlName="descriptionControle"
+                id="descriptionControle" 
+                type="text" 
+                [(ngModel)]="post.descriptionControle"
+                class="form-control">
+            <div *ngIf="f['descriptionControle'].touched && f['descriptionControle'].invalid" class="alert alert-danger">
+                <div *ngIf="f['descriptionControle'].errors && f['descriptionControle'].errors['required']">descriptionControle is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="conception">conception:</label>
+            <input 
+                formControlName="conception"
+                id="conception" 
+                type="text" 
+                [(ngModel)]="post.conception"
+                class="form-control">
+            <div *ngIf="f['conception'].touched && f['conception'].invalid" class="alert alert-danger">
+                <div *ngIf="f['conception'].errors && f['conception'].errors['required']">conception is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="performance">performance:</label>
+            <input 
+                formControlName="performance"
+                id="performance" 
+                type="text" 
+                [(ngModel)]="post.performance"
+                class="form-control">
+            <div *ngIf="f['performance'].touched && f['performance'].invalid" class="alert alert-danger">
+                <div *ngIf="f['performance'].errors && f['performance'].errors['required']">performance is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="efficacite">efficacite:</label>
+            <input 
+                formControlName="efficacite"
+                id="efficacite" 
+                type="text" 
+                [(ngModel)]="post.efficacite"
+                class="form-control">
+            <div *ngIf="f['efficacite'].touched && f['efficacite'].invalid" class="alert alert-danger">
+                <div *ngIf="f['efficacite'].errors && f['efficacite'].errors['required']">efficacite is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="ponderationSurImpact">ponderationSurImpact:</label>
+            <input 
+                formControlName="ponderationSurImpact"
+                id="ponderationSurImpact" 
+                type="text" 
+                [(ngModel)]="post.ponderationSurImpact"
+                class="form-control">
+            <div *ngIf="f['ponderationSurImpact'].touched && f['ponderationSurImpact'].invalid" class="alert alert-danger">
+                <div *ngIf="f['ponderationSurImpact'].errors && f['ponderationSurImpact'].errors['required']">ponderationSurImpact is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="ponderationSurProbabilite">ponderationSurProbabilite:</label>
+            <input 
+                formControlName="ponderationSurProbabilite"
+                id="ponderationSurProbabilite" 
+                type="text" 
+                [(ngModel)]="post.ponderationSurProbabilite"
+                class="form-control">
+            <div *ngIf="f['ponderationSurProbabilite'].touched && f['ponderationSurProbabilite'].invalid" class="alert alert-danger">
+                <div *ngIf="f['ponderationSurProbabilite'].errors && f['ponderationSurProbabilite'].errors['required']">ponderationSurProbabilite is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="valeurReductionImpact">valeurReductionImpact:</label>
+            <input 
+                formControlName="valeurReductionImpact"
+                id="valeurReductionImpact" 
+                type="text" 
+                [(ngModel)]="post.valeurReductionImpact"
+                class="form-control">
+            <div *ngIf="f['valeurReductionImpact'].touched && f['valeurReductionImpact'].invalid" class="alert alert-danger">
+                <div *ngIf="f['valeurReductionImpact'].errors && f['valeurReductionImpact'].errors['required']">valeurReductionImpact is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="valeurReductionProbabilite">valeurReductionProbabilite:</label>
+            <input 
+                formControlName="valeurReductionProbabilite"
+                id="valeurReductionProbabilite" 
+                type="text" 
+                [(ngModel)]="post.valeurReductionProbabilite"
+                class="form-control">
+            <div *ngIf="f['valeurReductionProbabilite'].touched && f['valeurReductionProbabilite'].invalid" class="alert alert-danger">
+                <div *ngIf="f['valeurReductionProbabilite'].errors && f['valeurReductionProbabilite'].errors['required']">valeurReductionProbabilite is required.</div>
+            </div>
+        </div>
+                   <div class="form-group">
+            <label for="existant">existant:</label>
+            <input 
+                formControlName="existant"
+                id="existant" 
+                type="text" 
+                [(ngModel)]="post.existant"
+                class="form-control">
+            <div *ngIf="f['existant'].touched && f['existant'].invalid" class="alert alert-danger">
+                <div *ngIf="f['existant'].errors && f['existant'].errors['required']">existant is required.</div>
+            </div>
+        </div>
+           
+
+         
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>

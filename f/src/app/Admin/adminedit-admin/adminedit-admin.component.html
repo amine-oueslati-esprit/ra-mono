@@ -1,0 +1,54 @@
+
+
+
+
+<div class="container">
+    <h1>Update Post</h1>
+   
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+          
+    <form [formGroup]="form" (ngSubmit)="submit()">
+    
+        <div class="form-group">
+            <label for="email">email:</label>
+            <input 
+                formControlName="email"
+                id="email" 
+                type="text" 
+                [(ngModel)]="post.email"
+                class="form-control">
+            <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                <div *ngIf="f['email'].errors && f['email'].errors['required']">email is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">password:</label>
+            <input 
+                formControlName="password"
+                id="password" 
+                type="text" 
+                [(ngModel)]="post.password"
+                class="form-control">
+            <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+                <div *ngIf="f['password'].errors && f['password'].errors['required']">password is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="role">role:</label>
+            <input 
+                formControlName="role"
+                id="role" 
+                type="text" 
+                [(ngModel)]="post.role"
+                class="form-control">
+            <div *ngIf="f['role'].touched && f['role'].invalid" class="alert alert-danger">
+                <div *ngIf="f['role'].errors && f['role'].errors['required']">role is required.</div>
+            </div>
+        </div>
+        
+           
+
+         
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>

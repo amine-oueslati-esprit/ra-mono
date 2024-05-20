@@ -1,0 +1,65 @@
+
+
+
+
+<div class="container">
+    <h1>Update Post</h1>
+   
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+          
+    <form [formGroup]="form" (ngSubmit)="submit()">
+    
+        <div class="form-group">
+            <label for="nom">nom:</label>
+            <input 
+                formControlName="nom"
+                id="nom" 
+                type="text" 
+                [(ngModel)]="post.nom"
+                class="form-control">
+            <div *ngIf="f['nom'].touched && f['nom'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nom'].errors && f['nom'].errors['required']">nom is required.</div>
+            </div>
+        </div>
+                <div class="form-group">
+            <label for="description">description:</label>
+            <input 
+                formControlName="description"
+                id="description" 
+                type="text" 
+                [(ngModel)]="post.description"
+                class="form-control">
+            <div *ngIf="f['description'].touched && f['description'].invalid" class="alert alert-danger">
+                <div *ngIf="f['description'].errors && f['description'].errors['required']">description is required.</div>
+            </div>
+        </div>
+                <div class="form-group">
+            <label for="type_contat">type_contat:</label>
+            <input 
+                formControlName="type_contat"
+                id="type_contat" 
+                type="text" 
+                [(ngModel)]="post.type_contat"
+                class="form-control">
+            <div *ngIf="f['type_contat'].touched && f['type_contat'].invalid" class="alert alert-danger">
+                <div *ngIf="f['type_contat'].errors && f['type_contat'].errors['required']">type_contat is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="SLA">SLA:</label>
+            <input 
+                formControlName="SLA"
+                id="SLA" 
+                type="text" 
+                [(ngModel)]="post.SLA"
+                class="form-control">
+            <div *ngIf="f['SLA'].touched && f['SLA'].invalid" class="alert alert-danger">
+                <div *ngIf="f['SLA'].errors && f['SLA'].errors['required']">SLA is required.</div>
+            </div>
+        </div>
+           
+
+         
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>

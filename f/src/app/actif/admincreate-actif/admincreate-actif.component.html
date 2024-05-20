@@ -1,0 +1,125 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <h1>Create New Post</h1>
+  
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group">
+            <label for="atype">atype:</label>
+            <input 
+                formControlName="atype"
+                id="atype" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['atype'].touched && f['atype'].invalid" class="alert alert-danger">
+                <div *ngIf="f['atype'].errors && f['atype'].errors['required']">atype is required.</div>
+            </div>
+        </div>
+                <div class="form-group">
+            <label for="areference">areference:</label>
+            <input 
+                formControlName="areference"
+                id="areference" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['areference'].touched && f['areference'].invalid" class="alert alert-danger">
+                <div *ngIf="f['areference'].errors && f['areference'].errors['required']">areference is required.</div>
+            </div>
+        </div>
+                <div class="form-group">
+            <label for="alocalisation">alocalisation:</label>
+            <input 
+                formControlName="alocalisation"
+                id="alocalisation" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['alocalisation'].touched && f['alocalisation'].invalid" class="alert alert-danger">
+                <div *ngIf="f['alocalisation'].errors && f['alocalisation'].errors['required']">alocalisation is required.</div>
+            </div>
+        </div>
+                <div class="form-group">
+            <label for="criticite_confidentialite">criticite_confidentialite:</label>
+            <input 
+                formControlName="criticite_confidentialite"
+                id="criticite_confidentialite" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['criticite_confidentialite'].touched && f['criticite_confidentialite'].invalid" class="alert alert-danger">
+                <div *ngIf="f['criticite_confidentialite'].errors && f['criticite_confidentialite'].errors['required']">criticite_confidentialite is required.</div>
+            </div>
+        </div>
+                <div class="form-group">
+            <label for="criticite_integrite">criticite_integrite:</label>
+            <input 
+                formControlName="criticite_integrite"
+                id="criticite_integrite" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['criticite_integrite'].touched && f['criticite_integrite'].invalid" class="alert alert-danger">
+                <div *ngIf="f['criticite_integrite'].errors && f['criticite_integrite'].errors['required']">criticite_integrite is required.</div>
+            </div>
+        </div>
+                <div class="form-group">
+            <label for="criticite_disponibilite">criticite_disponibilite:</label>
+            <input 
+                formControlName="criticite_disponibilite"
+                id="criticite_disponibilite" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['criticite_disponibilite'].touched && f['criticite_disponibilite'].invalid" class="alert alert-danger">
+                <div *ngIf="f['criticite_disponibilite'].errors && f['criticite_disponibilite'].errors['required']">criticite_disponibilite is required.</div>
+            </div>
+        </div>
+                <div class="form-group">
+            <label for="criticite_valeur_actif">criticite_valeur_actif:</label>
+            <input 
+                formControlName="criticite_valeur_actif"
+                id="criticite_valeur_actif" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['criticite_valeur_actif'].touched && f['criticite_valeur_actif'].invalid" class="alert alert-danger">
+                <div *ngIf="f['criticite_valeur_actif'].errors && f['criticite_valeur_actif'].errors['required']">criticite_valeur_actif is required.</div>
+            </div>
+        </div>
+                <div class="form-group">
+            <label for="vulnerabilitesList">vulnerabilitesList:</label>
+            <input 
+                formControlName="vulnerabilitesList"
+                id="vulnerabilitesList" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['vulnerabilitesList'].touched && f['vulnerabilitesList'].invalid" class="alert alert-danger">
+                <div *ngIf="f['vulnerabilitesList'].errors && f['vulnerabilitesList'].errors['required']">vulnerabilitesList is required.</div>
+            </div>
+        </div>
+                <div class="form-group">
+            <label for="groupeAList">groupeAList:</label>
+            <input 
+                formControlName="groupeAList"
+                id="groupeAList" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['groupeAList'].touched && f['groupeAList'].invalid" class="alert alert-danger">
+                <div *ngIf="f['groupeAList'].errors && f['groupeAList'].errors['required']">groupeAList is required.</div>
+            </div>
+        </div>
+        
+  
+
+  
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
